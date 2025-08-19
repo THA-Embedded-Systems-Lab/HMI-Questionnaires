@@ -305,11 +305,25 @@ const questionnaires: Questionnaire[] = [
     name: "Psychological assessment of AI-based decision support systems",
     short: "PAAI",
     metadata: {
+      items: 39,
       scales: [
-        { name: "System Characteristics" },
-        { name: "Task Characteristics" },
-        { name: "Job Characteristics" },
+        {
+          name: "System Characteristics",
+          cronbachsAlpha: 0.84,
+        },
+        {
+          name: "Task Characteristics",
+          cronbachsAlpha: 0.79,
+        },
+         {
+          name: "Job Characteristics",
+          cronbachsAlpha: 0.88,
+        },
       ],
+      participantDetails: {
+        n: 471,
+        type: ["Prolific", "UK/US"],
+      },
       time: [Time.Standalone],
       language: ["EN"],
       year: 2023,
@@ -317,6 +331,9 @@ const questionnaires: Questionnaire[] = [
     links: {
       doi: "https://doi.org/10.3389/frai.2023.1249322",
     },
+    notes: [
+      "For each scale, Cronbach's alpha is computed from the average post-study test scores across all groups to facilitate simplified reporting.",
+    ],
   },
 ];
 
