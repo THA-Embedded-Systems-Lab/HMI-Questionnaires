@@ -6,12 +6,17 @@ const questionnaires: Questionnaire[] = [
   {
     name: "System Usability Scale",
     short: "SUS",
+    data: [
+      {
+        language: "EN",
+        scales: [{ name: "Usability" }],
+      },
+    ],
     metadata: {
-      language: ["EN", "DE"],
-      scales: [{ name: "Usability" }],
       time: [Time.PostStudy],
       year: 1996,
       items: 10,
+      languages: ["EN", "DE"],
     },
     links: {
       website:
@@ -21,24 +26,29 @@ const questionnaires: Questionnaire[] = [
   {
     name: "User Experience Questionnaire",
     short: "UEQ",
+    data: [
+      {
+        language: "EN",
+        scales: [
+          { name: "Attractiveness" },
+          { name: "Perspicuity" },
+          { name: "Efficiency" },
+          { name: "Dependability" },
+          { name: "Stimulation" },
+          { name: "Novelty" },
+          { name: "Hedonic" },
+          { name: "Pragmatic" },
+        ],
+      },
+    ],
     metadata: {
-      scales: [
-        { name: "Attractiveness" },
-        { name: "Perspicuity" },
-        { name: "Efficiency" },
-        { name: "Dependability" },
-        { name: "Stimulation" },
-        { name: "Novelty" },
-        { name: "Hedonic" },
-        { name: "Pragmatic" },
-      ],
       time: [Time.PostStudy],
       items: 26,
       responseFormat: ResponseFormat.SemDiff7,
       year: 2005,
-      language: [
+      languages: [
         "DE",
-        "US",
+        "EN",
         "ES",
         "PT",
         "TR",
@@ -84,15 +94,20 @@ const questionnaires: Questionnaire[] = [
   {
     name: "User Experience Questionnaire - Short",
     short: "UEQ-S",
+    data: [
+      {
+        language: "EN",
+        scales: [{ name: "Hedonic" }, { name: "Pragmatic" }],
+      },
+    ],
     metadata: {
-      scales: [{ name: "Hedonic" }, { name: "Pragmatic" }],
       time: [Time.PostStudy],
       items: 8,
       responseFormat: ResponseFormat.SemDiff7,
       year: 2017,
-      language: [
+      languages: [
         "DE",
-        "US",
+        "EN",
         "ES",
         "PT",
         "TR",
@@ -138,23 +153,28 @@ const questionnaires: Questionnaire[] = [
   {
     name: "System Acceptance Scale",
     short: "Accept. Scale",
-    metadata: {
-      scales: [
-        {
-          name: "Usefulness",
-          cronbachsAlpha: 0.813,
+    data: [
+      {
+        language: "EN",
+        participantDetails: {
+          n: 283,
+          type: ["Young", "Elderly"],
         },
-        {
-          name: "Satisfying",
-          cronbachsAlpha: 0.855,
-        },
-      ],
-      participantDetails: {
-        n: 283,
-        type: ["Young", "Elderly"],
+        scales: [
+          {
+            name: "Usefulness",
+            cronbachsAlpha: 0.813,
+          },
+          {
+            name: "Satisfying",
+            cronbachsAlpha: 0.855,
+          },
+        ],
       },
+    ],
+    metadata: {
       time: [Time.PostStudy],
-      language: ["EN", "DE", "NL", "SV", "ES", "FR", "IT", "JA"],
+      languages: ["EN", "DE", "NL", "SV", "ES", "FR", "IT", "JA"],
       year: 1997,
       items: 9,
       responseFormat: ResponseFormat.SemDiff5,
@@ -171,21 +191,20 @@ const questionnaires: Questionnaire[] = [
   {
     name: "Negative Attitude toward Robots Scale",
     short: "NARS",
+    data: [
+      {
+        language: "EN",
+        scales: [
+          { name: "Comfort" },
+          { name: "Trust" },
+          { name: "Acceptance" },
+        ],
+      },
+    ],
     metadata: {
-      scales: [
-        {
-          name: "Comfort",
-        },
-        {
-          name: "Trust",
-        },
-        {
-          name: "Acceptance",
-        },
-      ],
       time: [Time.PostStudy],
       items: 14,
-      language: ["EN", "ES", "DE", "FR", "JA", "CN"],
+      languages: ["EN", "ES", "DE", "FR", "JA", "CN"],
       year: 2006,
       responseFormat: ResponseFormat.Likert5,
     },
@@ -201,10 +220,15 @@ const questionnaires: Questionnaire[] = [
   {
     name: "Attitudes toward Cooperative Industrial Robots Questionnaire",
     short: "ACIR-Q",
+    data: [
+      {
+        language: "EN",
+        scales: [{ name: "Social" }, { name: "Task" }, { name: "Affect" }],
+      },
+    ],
     metadata: {
-      scales: [{ name: "Social" }, { name: "Task" }, { name: "Affect" }],
       time: [Time.PreStudy, Time.Standalone],
-      language: ["DE", "EN"],
+      languages: ["DE", "EN"],
       items: 12,
       year: 2022,
     },
@@ -217,19 +241,35 @@ const questionnaires: Questionnaire[] = [
   {
     name: "Trust in Automation Questionnaire",
     short: "TiA",
+    data: [
+      {
+        language: "EN",
+        scales: [
+          { name: "Intent of Developers" },
+          { name: "Reliability" },
+          { name: "Predictability" },
+          { name: "Familiarity" },
+          { name: "Propensity to Trust" },
+          { name: "Trust in Automation" },
+        ],
+      },
+      {
+        language: "DE",
+        scales: [
+          { name: "Intent of Developers" },
+          { name: "Reliability" },
+          { name: "Predictability" },
+          { name: "Familiarity" },
+          { name: "Propensity to Trust" },
+          { name: "Trust in Automation" },
+        ],
+      },
+    ],
     metadata: {
-      scales: [
-        { name: "Intent of Developers" },
-        { name: "Reliability" },
-        { name: "Predictability" },
-        { name: "Familiarity" },
-        { name: "Propensity to Trust" },
-        { name: "Trust in Automation" },
-      ],
       time: [Time.PostStudy],
-      language: ["EN", "DE"],
       items: 19,
       year: 2019,
+      languages: ["EN", "DE"],
     },
     links: {
       doi: "https://doi.org/10.1016/j.apergo.2017.07.006",
@@ -239,12 +279,18 @@ const questionnaires: Questionnaire[] = [
   {
     name: "Usability Metric for User Experience",
     short: "UMUX",
+    data: [
+      {
+        language: "EN",
+        scales: [
+          { name: "Effectiveness" },
+          { name: "Efficiency" },
+          { name: "Satisfaction" },
+        ],
+      },
+    ],
     metadata: {
-      scales: [
-        { name: "Effectiveness" },
-        { name: "Efficiency" },
-        { name: "Satisfaction" },
-      ],
+      languages: ["EN", "DE"],
       time: [Time.PostStudy],
       items: 4,
       year: 2010,
@@ -256,15 +302,20 @@ const questionnaires: Questionnaire[] = [
   {
     name: "Post-Study-Scenario Questionnaire",
     short: "ASQ",
+    data: [
+      {
+        language: "EN",
+        scales: [
+          { name: "Attractiveness" },
+          { name: "Efficiency" },
+          { name: "Perspicuity" },
+        ],
+      },
+    ],
     metadata: {
-      scales: [
-        { name: "Attractiveness" },
-        { name: "Efficiency" },
-        { name: "Perspicuity" },
-      ],
       time: [Time.PostStudy],
       year: 1991,
-      language: ["EN"],
+      languages: ["EN"],
       items: 3,
       responseFormat: ResponseFormat.Likert7,
     },
@@ -275,11 +326,16 @@ const questionnaires: Questionnaire[] = [
   {
     name: "NASA Task Load Index",
     short: "NASA-TLX",
+    data: [
+      {
+        language: "EN",
+        scales: [{ name: "Cognitive Load" }],
+      },
+    ],
     metadata: {
-      scales: [{ name: "Cognitive Load" }],
       time: [Time.PostStudy],
       year: 1988,
-      language: ["EN"],
+      languages: ["EN"],
       items: 6,
     },
     links: {
@@ -291,11 +347,17 @@ const questionnaires: Questionnaire[] = [
   {
     name: "AttrakDiff: Ein Fragebogen zur Messung wahrgenommener hedonischer und pragmatischer Qualität",
     short: "AttrakDiff",
+    data: [
+      {
+        language: "DE",
+        scales: [{ name: "Hedonic" }, { name: "Pragmatic" }],
+      },
+    ],
     metadata: {
-      scales: [{ name: "Hedonic" }, { name: "Pragmatic" }],
       time: [Time.PostStudy],
-      language: ["DE"],
+      languages: ["DE"],
       year: 2003,
+      responseFormat: ResponseFormat.SemDiff7,
     },
     links: {
       doi: "https://doi.org/10.1007/978-3-322-80058-9_19",
@@ -306,28 +368,33 @@ const questionnaires: Questionnaire[] = [
     short: "PAAI",
     metadata: {
       items: 39,
-      scales: [
-        {
-          name: "System Characteristics",
-          cronbachsAlpha: 0.84,
-        },
-        {
-          name: "Task Characteristics",
-          cronbachsAlpha: 0.79,
-        },
-         {
-          name: "Job Characteristics",
-          cronbachsAlpha: 0.88,
-        },
-      ],
-      participantDetails: {
-        n: 471,
-        type: ["Prolific", "UK/US"],
-      },
       time: [Time.Standalone],
-      language: ["EN"],
+      languages: ["EN"],
       year: 2023,
     },
+    data: [
+      {
+        language: "EN",
+        scales: [
+          {
+            name: "System Characteristics",
+            cronbachsAlpha: 0.84,
+          },
+          {
+            name: "Task Characteristics",
+            cronbachsAlpha: 0.79,
+          },
+          {
+            name: "Job Characteristics",
+            cronbachsAlpha: 0.88,
+          },
+        ],
+        participantDetails: {
+          n: 471,
+          type: ["Prolific", "UK/US"],
+        },
+      },
+    ],
     links: {
       doi: "https://doi.org/10.3389/frai.2023.1249322",
     },

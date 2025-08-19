@@ -46,27 +46,50 @@ const QuestionnaireTable: React.FC<QuestionnaireTableProps> = ({
                     <div className="fw-medium">{q.name}</div>
                     <div className="d-md-none mt-1">
                       <small className="text-muted">
-                        {q.metadata.scales.length} scale
-                        {q.metadata.scales.length !== 1 ? "s" : ""} •{" "}
-                        {q.metadata.items} items
+                        {q.data.reduce(
+                          (totalScales, dataEntry) =>
+                            totalScales + dataEntry.scales.length,
+                          0
+                        )}{" "}
+                        scale
+                        {q.data.reduce(
+                          (totalScales, dataEntry) =>
+                            totalScales + dataEntry.scales.length,
+                          0
+                        ) !== 1
+                          ? "s"
+                          : ""}{" "}
+                        • {q.metadata.items} items
                       </small>
                     </div>
                   </div>
                 </td>
                 <td className="d-none d-md-table-cell">
                   <div className="d-flex flex-wrap gap-1 my-1">
-                    {q.metadata.scales.slice(0, 3).map((scale, index) => (
-                      <span
-                        key={index}
-                        className="badge bg-secondary-transparent text-truncate"
-                        style={{ maxWidth: "120px" }}
-                      >
-                        {scale.name}
-                      </span>
-                    ))}
-                    {q.metadata.scales.length > 3 && (
+                    {q.data
+                      .flatMap((dataEntry) => dataEntry.scales)
+                      .slice(0, 3)
+                      .map((scale, index) => (
+                        <span
+                          key={index}
+                          className="badge bg-secondary-transparent text-truncate"
+                          style={{ maxWidth: "120px" }}
+                        >
+                          {scale.name}
+                        </span>
+                      ))}
+                    {q.data.reduce(
+                      (totalScales, dataEntry) =>
+                        totalScales + dataEntry.scales.length,
+                      0
+                    ) > 3 && (
                       <span className="badge bg-secondary-transparent">
-                        +{q.metadata.scales.length - 3}
+                        +
+                        {q.data.reduce(
+                          (totalScales, dataEntry) =>
+                            totalScales + dataEntry.scales.length,
+                          0
+                        ) - 3}
                       </span>
                     )}
                   </div>
@@ -79,15 +102,15 @@ const QuestionnaireTable: React.FC<QuestionnaireTableProps> = ({
                 <td className="d-none d-xl-table-cell">
                   <div style={{ wordWrap: "break-word", hyphens: "auto" }}>
                     <small className="text-muted">
-                      {q.metadata.language?.length ? (
-                        q.metadata.language.length <= 10 ? (
-                          q.metadata.language.join(", ")
+                      {q.metadata.languages?.length ? (
+                        q.metadata.languages.length <= 10 ? (
+                          q.metadata.languages.join(", ")
                         ) : (
                           <>
-                            {q.metadata.language.slice(0, 10).join(", ")}
+                            {q.metadata.languages.slice(0, 10).join(", ")}
                             <span className="text-primary">
                               {" "}
-                              +{q.metadata.language.length - 10} more
+                              +{q.metadata.languages.length - 10} more
                             </span>
                           </>
                         )

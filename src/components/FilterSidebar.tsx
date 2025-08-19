@@ -52,7 +52,9 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
   const uniqueScales = Array.from(
     new Set(
       questionnaires.flatMap((q) =>
-        q.metadata.scales.map((scale) => scale.name)
+        q.data
+          .filter((dataEntry) => dataEntry.language.toLowerCase() === "en")
+          .flatMap((dataEntry) => dataEntry.scales.map((scale) => scale.name))
       )
     )
   );
@@ -61,7 +63,7 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
   const timeValues: Time[] = Object.values(Time);
 
   const uniqueLanguages = Array.from(
-    new Set(questionnaires.flatMap((q) => q.metadata.language || []))
+    new Set(questionnaires.flatMap((q) => q.metadata.languages))
   );
 
   return (

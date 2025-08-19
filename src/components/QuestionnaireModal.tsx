@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Questionnaire } from "../types/Questionnaire";
-import { useTheme } from "../hooks/useTheme";
 
 interface QuestionnaireModalProps {
   questionnaire: Questionnaire | null;
@@ -15,7 +14,44 @@ const QuestionnaireModal: React.FC<QuestionnaireModalProps> = ({
   onClose,
   getIconForLink,
 }) => {
-  const { actualTheme } = useTheme();
+  const [selectedLanguage, setSelectedLanguage] = useState<string>("");
+
+  // Get all available languages from data entries
+  const getAvailableLanguages = useCallback((): string[] => {
+    if (!questionnaire) return [];
+
+    const languages = new Set<string>();
+    questionnaire.data.forEach((dataEntry) => {
+      languages.add(dataEntry.language);
+    });
+    return Array.from(languages).sort();
+  }, [questionnaire]);
+
+  // Get Cronbach's alpha for a specific scale and language
+  const getCronbachsAlphaForLanguage = (
+    scaleName: string,
+    language: string
+  ): string => {
+    if (!questionnaire) return "N/A";
+
+    const dataEntry = questionnaire.data.find((d) => d.language === language);
+    if (!dataEntry) return "N/A";
+
+    const scale = dataEntry.scales.find((s) => s.name === scaleName);
+    return scale?.cronbachsAlpha?.toString() || "N/A";
+  };
+
+  // Reset selected language when questionnaire changes
+  useEffect(() => {
+    if (questionnaire) {
+      const availableLanguages = getAvailableLanguages();
+      setSelectedLanguage(
+        availableLanguages.length > 0 ? availableLanguages[0] : ""
+      );
+    }
+  }, [questionnaire, getAvailableLanguages]);
+
+  const availableLanguages = getAvailableLanguages();
 
   if (!isOpen || !questionnaire) {
     return null;
@@ -69,6 +105,12 @@ const QuestionnaireModal: React.FC<QuestionnaireModalProps> = ({
                   </tr>
                   <tr>
                     <td>
+                      <strong>License:</strong>
+                    </td>
+                    <td>{questionnaire.license || "unspecified"}</td>
+                  </tr>
+                  <tr>
+                    <td>
                       <strong>Items:</strong>
                     </td>
                     <td>{questionnaire.metadata.items || "N/A"}</td>
@@ -99,8 +141,10 @@ const QuestionnaireModal: React.FC<QuestionnaireModalProps> = ({
                       <strong>Language(s):</strong>
                     </td>
                     <td>
-                      {questionnaire.metadata.language?.length
-                        ? questionnaire.metadata.language.join(", ")
+                      {questionnaire.data.length
+                        ? questionnaire.data
+                            .map((dataEntry) => dataEntry.language)
+                            .join(", ")
                         : "N/A"}
                     </td>
                   </tr>
@@ -111,7 +155,27 @@ const QuestionnaireModal: React.FC<QuestionnaireModalProps> = ({
 
             <div className="row mt-3 p-3">
               <div className="col-12">
-                <h4>Scales</h4>
+                <div className="d-flex justify-content-between align-items-center mb-3">
+                  <h4 className="">Quality Information</h4>
+                  {availableLanguages.length > 0 && (
+                    <div className="d-flex align-items-center">
+                      <select
+                        id="language-select"
+                        className="form-select form-select-sm"
+                        style={{ width: "auto" }}
+                        value={selectedLanguage}
+                        onChange={(e) => setSelectedLanguage(e.target.value)}
+                      >
+                        {availableLanguages.map((language) => (
+                          <option key={language} value={language}>
+                            {language}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  )}
+                </div>
+                <h5>Scales</h5>
                 <table className="table table-sm table-hover">
                   <thead>
                     <tr>
@@ -120,14 +184,65 @@ const QuestionnaireModal: React.FC<QuestionnaireModalProps> = ({
                     </tr>
                   </thead>
                   <tbody>
-                    {questionnaire.metadata.scales.map((scale, index) => (
+                    {Array.from(
+                      new Set(
+                        questionnaire.data.flatMap((dataEntry) =>
+                          dataEntry.scales.map((scale) => scale.name)
+                        )
+                      )
+                    ).map((scaleName, index) => (
                       <tr key={index}>
-                        <td>{scale.name}</td>
-                        <td>{scale.cronbachsAlpha || "N/A"}</td>
+                        <td>{scaleName}</td>
+                        <td>
+                          {availableLanguages.length > 0 && selectedLanguage
+                            ? getCronbachsAlphaForLanguage(
+                                scaleName,
+                                selectedLanguage
+                              )
+                            : "N/A"}
+                        </td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
+
+                {selectedLanguage &&
+                  (() => {
+                    const dataEntry = questionnaire.data.find(
+                      (d) => d.language === selectedLanguage
+                    );
+                    const participantDetails = dataEntry?.participantDetails;
+
+                    if (participantDetails) {
+                      return (
+                        <div className="mt-4">
+                          <h5>Participant Details</h5>
+                          <table className="table table-sm">
+                            <tbody>
+                              <tr>
+                                <td>
+                                  <strong>Sample Size (N):</strong>
+                                </td>
+                                <td>{participantDetails.n}</td>
+                              </tr>
+                              {participantDetails.type &&
+                                participantDetails.type.length > 0 && (
+                                  <tr>
+                                    <td>
+                                      <strong>Participant Type(s):</strong>
+                                    </td>
+                                    <td>
+                                      {participantDetails.type.join(", ")}
+                                    </td>
+                                  </tr>
+                                )}
+                            </tbody>
+                          </table>
+                        </div>
+                      );
+                    }
+                    return null;
+                  })()}
               </div>
             </div>
 

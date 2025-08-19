@@ -1,26 +1,32 @@
 import { Time } from "./Time";
 import { ResponseFormat } from "./ResponseFormat";
 
-export type Metadata = {
-  scales: Scale[];
-  responseFormat?: ResponseFormat;
-  time: Time[];
-  language?: string[];
-  year?: number;
-  items?: number;
-  participantDetails?: {
-    n: number;
-    type: string[];
-  };
-};
-
 export type Questionnaire = {
   name: string;
   short: string;
+  data: data[];
+  license?: string;
   metadata: Metadata;
   links?: Record<string, string>;
   domain?: string[];
   notes?: string[];
+};
+
+export type Metadata = {
+  responseFormat?: ResponseFormat;
+  time: Time[];
+  year?: number;
+  items?: number;
+  languages: string[];
+};
+
+export type data = {
+  language: string;
+  participantDetails?: {
+    n: number;
+    type: string[];
+  };
+  scales: Scale[];
 };
 
 export type Scale = {

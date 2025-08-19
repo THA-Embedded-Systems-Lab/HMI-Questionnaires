@@ -86,7 +86,9 @@ const QuestionnairesPage: React.FC = () => {
     const matchesSearch = q.name.toLowerCase().includes(search.toLowerCase());
     const matchesScales = filters.scales.length
       ? filters.scales.every((factor) =>
-          q.metadata.scales.some((scale) => scale.name === factor)
+          q.data.some((dataEntry) =>
+            dataEntry.scales.some((scale) => scale.name === factor)
+          )
         )
       : true;
 
@@ -95,7 +97,7 @@ const QuestionnairesPage: React.FC = () => {
       : true;
 
     const matchesLanguage = filters.language
-      ? q.metadata.language?.includes(filters.language)
+      ? q.data.some((dataEntry) => dataEntry.language === filters.language)
       : true;
 
     return matchesSearch && matchesScales && matchesTime && matchesLanguage;
