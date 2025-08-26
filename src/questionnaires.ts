@@ -97,7 +97,14 @@ const questionnaires: Questionnaire[] = [
     data: [
       {
         language: "EN",
-        scales: [{ name: "Hedonic" }, { name: "Pragmatic" }],
+        scales: [
+          { name: "Hedonic", cronbachsAlpha: 0.81 },
+          { name: "Pragmatic", cronbachsAlpha: 0.85 },
+        ],
+        participantDetails: {
+          n: 31,
+          type: ["Students"],
+        },
       },
     ],
     metadata: {
