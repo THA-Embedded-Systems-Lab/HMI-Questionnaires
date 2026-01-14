@@ -141,10 +141,8 @@ const QuestionnaireModal: React.FC<QuestionnaireModalProps> = ({
                       <strong>Language(s):</strong>
                     </td>
                     <td>
-                      {questionnaire.data.length
-                        ? questionnaire.data
-                            .map((dataEntry) => dataEntry.language)
-                            .join(", ")
+                      {questionnaire.metadata.languages?.length
+                        ? questionnaire.metadata.languages.join(", ")
                         : "N/A"}
                     </td>
                   </tr>
