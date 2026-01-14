@@ -19,8 +19,18 @@ const questionnaires: Questionnaire[] = [
       languages: ["EN", "DE"],
     },
     links: {
-      website:
-        "https://www.researchgate.net/publication/228593520_SUS_A_quick_and_dirty_usability_scale",
+      website: [
+        {
+          title: "SUS: A Quick and Dirty Usability Scale",
+          url: "https://www.researchgate.net/publication/228593520_SUS_A_quick_and_dirty_usability_scale",
+        },
+      ],
+      doi: [
+        {
+          title: "An Empirical Evaluation of the System Usability Scale",
+          url: "https://doi.org/10.1080/10447310802205776",
+        },
+      ],
     },
   },
   {
@@ -87,8 +97,19 @@ const questionnaires: Questionnaire[] = [
       ],
     },
     links: {
-      website: "https://www.ueq-online.org",
-      doi: "https://doi.org/10.1007/978-3-540-89350-9_6",
+      website: [
+        {
+          title: "UEQ Official Website",
+          url: "https://www.ueq-online.org",
+        },
+      ],
+      doi: [
+        {
+          title:
+            "Construction and Evaluation of a User Experience Questionnaire",
+          url: "https://doi.org/10.1007/978-3-540-89350-9_6",
+        },
+      ],
     },
   },
   {
@@ -153,8 +174,19 @@ const questionnaires: Questionnaire[] = [
       ],
     },
     links: {
-      website: "https://www.ueq-online.org",
-      doi: "http://dx.doi.org/10.9781/ijimai.2017.09.001",
+      website: [
+        {
+          title: "UEQ Official Website",
+          url: "https://www.ueq-online.org",
+        },
+      ],
+      doi: [
+        {
+          title:
+            "Design and Evaluation of a Short Version of the User Experience Questionnaire (UEQ-S)",
+          url: "https://www.researchgate.net/publication/319863058_Design_and_Evaluation_of_a_Short_Version_of_the_User_Experience_Questionnaire_UEQ-S",
+        },
+      ],
     },
   },
   {
@@ -187,8 +219,19 @@ const questionnaires: Questionnaire[] = [
       responseFormat: ResponseFormat.SemDiff5,
     },
     links: {
-      doi: "https://doi.org/10.1016/s0968-090x(96)00025-3",
-      website: "https://www.hfes-europe.org/accept/accept.htm",
+      doi: [
+        {
+          title:
+            "A simple procedure for the assessment of acceptance of advanced transport telematics",
+          url: "https://doi.org/10.1016/s0968-090x(96)00025-3",
+        },
+      ],
+      website: [
+        {
+          title: "System Acceptance Scale",
+          url: "https://www.hfes-europe.org/accept/accept.htm",
+        },
+      ],
     },
     domain: ["Automotive", "In-vehicle systems"],
     notes: [
@@ -216,9 +259,18 @@ const questionnaires: Questionnaire[] = [
       responseFormat: ResponseFormat.Likert5,
     },
     links: {
-      doi: "https://psycnet.apa.org/doi/10.1037/t57930-000",
-      website:
-        "https://www.bartneck.de/2019/03/11/negative-attitudes-towards-robots-scale-nars-translations/",
+      doi: [
+        {
+          title: "Negative Attitudes toward Robots Scale",
+          url: "https://doi.org/10.1037/t57930-000",
+        },
+      ],
+      website: [
+        {
+          title: "Negative Attitudes Towards Robots Scale (NARS) Translations",
+          url: "https://www.bartneck.de/2019/03/11/negative-attitudes-towards-robots-scale-nars-translations/",
+        },
+      ],
     },
     notes: [
       "The scales are usually negative for this questionnaire, but for filtering, we invert them for better visibility.",
@@ -240,8 +292,20 @@ const questionnaires: Questionnaire[] = [
       year: 2022,
     },
     links: {
-      doi: "https://doi.org/10.1007/s12369-023-00996-0",
-      osf: "https://osf.io/5fnr9/",
+      doi: [
+        {
+          title:
+            "New Short Scale to Measure Workers’ Attitudes Toward the Implementation of Cooperative Robots in Industrial Work Settings: Instrument Development and Exploration of Attitude Structure",
+          url: "https://doi.org/10.1007/s12369-023-00996-0",
+        },
+      ],
+      osf: [
+        {
+          title:
+            "Short Scale To Measure Workers' Attitudes Toward The Implementation Of Cooperative Robots In Industrial Work Settings (ACIR-Q): Materials",
+          url: "https://osf.io/5fnr9/",
+        },
+      ],
     },
     domain: ["Robot"],
   },
@@ -279,8 +343,19 @@ const questionnaires: Questionnaire[] = [
       languages: ["EN", "DE"],
     },
     links: {
-      doi: "https://doi.org/10.1016/j.apergo.2017.07.006",
-      git: "https://github.com/moritzkoerber/TiA_Trust_in_Automation_Questionnaire",
+      doi: [
+        {
+          title:
+            "Theoretical Considerations and Development of a Questionnaire to Measure Trust in Automation",
+          url: "https://doi.org/10.1007/978-3-319-96074-6_2",
+        },
+      ],
+      git: [
+        {
+          title: "Trust in Automation Questionnaire (TiA)",
+          url: "https://github.com/moritzkoerber/TiA_Trust_in_Automation_Questionnaire",
+        },
+      ],
     },
   },
   {
@@ -303,7 +378,12 @@ const questionnaires: Questionnaire[] = [
       year: 2010,
     },
     links: {
-      doi: "https://doi.org/10.1016/j.intcom.2010.04.004",
+      doi: [
+        {
+          title: "The Usability Metric for User Experience",
+          url: "https://doi.org/10.1016/j.intcom.2010.04.004",
+        },
+      ],
     },
   },
   {
@@ -327,7 +407,13 @@ const questionnaires: Questionnaire[] = [
       responseFormat: ResponseFormat.Likert7,
     },
     links: {
-      doi: "https://doi.org/10.1145/122672.122692",
+      doi: [
+        {
+          title:
+            "Psychometric evaluation of an after-scenario questionnaire for computer usability studies: the ASQ",
+          url: "https://doi.org/10.1145/122672.122692",
+        },
+      ],
     },
   },
   {
@@ -346,9 +432,19 @@ const questionnaires: Questionnaire[] = [
       items: 6,
     },
     links: {
-      doi: "https://doi.org/10.1016/s0166-4115(08)62386-9",
-      website:
-        "https://humansystems.arc.nasa.gov/groups/tlx/tlxpaperpencil.php",
+      doi: [
+        {
+          title:
+            "Development of NASA-TLX (Task Load Index): Results of Empirical and Theoretical Research",
+          url: "https://doi.org/10.1016/s0166-4115(08)62386-9",
+        },
+      ],
+      website: [
+        {
+          title: "NASA TLX Paper & Pencil Version",
+          url: "https://humansystems.arc.nasa.gov/groups/tlx/tlxpaperpencil.php",
+        },
+      ],
     },
   },
   {
@@ -367,7 +463,13 @@ const questionnaires: Questionnaire[] = [
       responseFormat: ResponseFormat.SemDiff7,
     },
     links: {
-      doi: "https://doi.org/10.1007/978-3-322-80058-9_19",
+      doi: [
+        {
+          title:
+            "AttrakDiff: Ein Fragebogen zur Messung wahrgenommener hedonischer und pragmatischer Qualität",
+          url: "https://doi.org/10.1007/978-3-322-80058-9_19",
+        },
+      ],
     },
   },
   {
@@ -403,7 +505,13 @@ const questionnaires: Questionnaire[] = [
       },
     ],
     links: {
-      doi: "https://doi.org/10.3389/frai.2023.1249322",
+      doi: [
+        {
+          title:
+            "Psychological assessment of AI-based decision support systems: tool development and expected benefits",
+          url: "https://doi.org/10.3389/frai.2023.1249322",
+        },
+      ],
     },
     notes: [
       "For each scale, Cronbach's alpha is computed from the average post-study test scores across all groups to facilitate simplified reporting.",

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Questionnaire } from "../types/Questionnaire";
+import { useTheme } from "../hooks/useTheme";
 
 interface QuestionnaireModalProps {
   questionnaire: Questionnaire | null;
@@ -14,6 +15,7 @@ const QuestionnaireModal: React.FC<QuestionnaireModalProps> = ({
   onClose,
   getIconForLink,
 }) => {
+  const { actualTheme } = useTheme();
   const [selectedLanguage, setSelectedLanguage] = useState<string>("");
 
   // Get all available languages from data entries
@@ -99,46 +101,7 @@ const QuestionnaireModal: React.FC<QuestionnaireModalProps> = ({
                   </tr>
                   <tr>
                     <td>
-                      <strong>Year:</strong>
-                    </td>
-                    <td>{questionnaire.metadata.year || "N/A"}</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>License:</strong>
-                    </td>
-                    <td>{questionnaire.license || "unspecified"}</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>Items:</strong>
-                    </td>
-                    <td>{questionnaire.metadata.items || "N/A"}</td>
-                  </tr>
-                  {questionnaire.metadata.responseFormat && (
-                    <tr>
-                      <td>
-                        <strong>Scale Type:</strong>
-                      </td>
-                      <td>{questionnaire.metadata.responseFormat}</td>
-                    </tr>
-                  )}
-                </tbody>
-              </table>
-            </div>
-            <div className="p-3">
-              <h4>Assessment Details</h4>
-              <table className="table table-sm">
-                <tbody>
-                  <tr>
-                    <td>
-                      <strong>Time:</strong>
-                    </td>
-                    <td>{questionnaire.metadata.time.join(", ")}</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>Language(s):</strong>
+                      <strong>Languages:</strong>
                     </td>
                     <td>
                       {questionnaire.metadata.languages?.length
@@ -149,7 +112,61 @@ const QuestionnaireModal: React.FC<QuestionnaireModalProps> = ({
                 </tbody>
               </table>
             </div>
-            {/* </div> */}
+
+            {/* Links section moved outside the table for valid JSX */}
+            {questionnaire.links &&
+              Object.keys(questionnaire.links).length > 0 && (
+                <div className="row mt-3 p-3">
+                  <div className="col-12">
+                    <h4>Links & Resources</h4>
+                    <ul className="list-unstyled">
+                      {Object.entries(questionnaire.links).map(
+                        ([linkType, linkArr]) => (
+                          <li key={linkType} className="mb-2">
+                            <strong>
+                              {linkType.charAt(0).toUpperCase() +
+                                linkType.slice(1)}
+                            </strong>
+                            <ul className="list-unstyled ms-3 mt-1">
+                              {Array.isArray(linkArr) &&
+                                linkArr.map((link, idx) => (
+                                  <li
+                                    key={linkType + idx}
+                                    className="mb-1 d-flex align-items-center"
+                                  >
+                                    <img
+                                      src={
+                                        getIconForLink(
+                                          linkType,
+                                          actualTheme === "dark"
+                                        ) || ""
+                                      }
+                                      alt={linkType}
+                                      style={{
+                                        width: "16px",
+                                        height: "16px",
+                                        marginRight: 8,
+                                        verticalAlign: "middle",
+                                      }}
+                                    />
+                                    <a
+                                      href={link.url}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="me-2"
+                                    >
+                                      {link.title}
+                                    </a>
+                                  </li>
+                                ))}
+                            </ul>
+                          </li>
+                        )
+                      )}
+                    </ul>
+                  </div>
+                </div>
+              )}
 
             <div className="row mt-3 p-3">
               <div className="col-12">
@@ -258,40 +275,6 @@ const QuestionnaireModal: React.FC<QuestionnaireModalProps> = ({
                 </div>
               </div>
             )}
-
-            {questionnaire.links &&
-              Object.keys(questionnaire.links).length > 0 && (
-                <div className="row mt-3 p-3">
-                  <div className="col-12">
-                    <h4>Links & Resources</h4>
-                    <div className="d-flex flex-wrap gap-2">
-                      {Object.entries(questionnaire.links).map(
-                        ([linkType, linkUrl]) => (
-                          <a
-                            key={linkType}
-                            href={linkUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="btn btn-primary text-white btn-sm d-flex align-items-center"
-                          >
-                            <img
-                              src={getIconForLink(linkType, true) || ""}
-                              alt={linkType}
-                              style={{
-                                width: "16px",
-                                height: "16px",
-                                marginRight: "4px",
-                              }}
-                            />
-                            {linkType.charAt(0).toUpperCase() +
-                              linkType.slice(1)}
-                          </a>
-                        )
-                      )}
-                    </div>
-                  </div>
-                </div>
-              )}
 
             {questionnaire.notes && questionnaire.notes.length > 0 && (
               <div className="row mt-3 p-3">

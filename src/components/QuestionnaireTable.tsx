@@ -134,33 +134,61 @@ const QuestionnaireTable: React.FC<QuestionnaireTableProps> = ({
                   <div className="d-flex gap-1">
                     {Object.entries(q.links || {})
                       .sort(([aType], [bType]) => aType.localeCompare(bType))
-                      .map(([linkType, linkUrl]) => (
-                        <a
-                          key={linkType}
-                          href={linkUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="btn btn-sm btn-outline-secondary p-1 d-flex align-items-center justify-content-center"
-                          onClick={(e) => e.stopPropagation()}
-                          style={{ width: "28px", height: "28px" }}
-                        >
-                          <img
-                            src={
-                              getIconForLink(
-                                linkType,
-                                actualTheme === "dark"
-                              ) || ""
-                            }
-                            alt={linkType}
+                      .map(([linkType, linkArr]) => {
+                        if (!Array.isArray(linkArr) || linkArr.length === 0)
+                          return null;
+                        // Always show the first link for the icon
+                        const firstLink = linkArr[0];
+                        return (
+                          <div
+                            key={linkType}
                             style={{
-                              width: "16px",
-                              height: "16px",
-                              display: "block",
-                              margin: "auto",
+                              position: "relative",
+                              textAlign: "center",
                             }}
-                          />
-                        </a>
-                      ))}
+                          >
+                            <a
+                              href={firstLink.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="btn btn-sm btn-outline-secondary p-1 d-flex align-items-center justify-content-center"
+                              onClick={(e) => e.stopPropagation()}
+                              style={{ width: "28px", height: "28px" }}
+                              title={firstLink.title}
+                            >
+                              <img
+                                src={
+                                  getIconForLink(
+                                    linkType,
+                                    actualTheme === "dark"
+                                  ) || ""
+                                }
+                                alt={linkType}
+                                style={{
+                                  width: "16px",
+                                  height: "16px",
+                                  display: "block",
+                                  margin: "auto",
+                                }}
+                              />
+                            </a>
+                            {linkArr.length > 1 && (
+                              <span
+                                style={{
+                                  fontSize: "0.7em",
+                                  position: "absolute",
+                                  left: 0,
+                                  right: 0,
+                                  bottom: -10,
+                                  color: "#888",
+                                }}
+                              >
+                                {linkArr.length}
+                              </span>
+                            )}
+                          </div>
+                        );
+                      })}
                   </div>
                 </td>
               </tr>
@@ -177,7 +205,7 @@ const QuestionnaireTable: React.FC<QuestionnaireTableProps> = ({
           >
             contribution section
           </a>{" "}
-          of the README on GitHub. .
+          of the README on GitHub.
         </div>
       </div>
     </div>

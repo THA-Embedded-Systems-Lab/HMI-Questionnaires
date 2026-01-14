@@ -7,7 +7,7 @@ export type Questionnaire = {
   data: data[];
   license?: string;
   metadata: Metadata;
-  links?: Record<string, string>;
+  links?: Record<string, { title: string; url: string }[]>;
   domain?: string[];
   notes?: string[];
 };
