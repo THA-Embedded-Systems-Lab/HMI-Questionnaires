@@ -57,6 +57,8 @@ the individual fields, please refer to the existing entries in the file, or
 check the definitions in [types](./src/types/). You can also refer to the
 existing questionnaires as examples.
 
+<!-- markdownlint-disable MD013 -->
+
 ```ts
 {
   name: "" , // Full name of the questionnaire
@@ -98,3 +100,5 @@ existing questionnaires as examples.
   notes: [] // Any additional notes, e.g. average of multiple Cronbach's alpha values for a single scale across multiple groups
 }
 ```
+
+<!-- markdownlint-enable MD013 -->
