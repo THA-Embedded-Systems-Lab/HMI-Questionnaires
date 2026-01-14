@@ -57,7 +57,7 @@ the individual fields, please refer to the existing entries in the file, or
 check the definitions in [types](./src/types/). You can also refer to the
 existing questionnaires as examples.
 
-```json
+```ts
 {
   name: "" , // Full name of the questionnaire
   short: "", // Short name or acronym

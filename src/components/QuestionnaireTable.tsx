@@ -167,6 +167,18 @@ const QuestionnaireTable: React.FC<QuestionnaireTableProps> = ({
             ))}
           </tbody>
         </table>
+
+        <div className="my-3 mx-5 text-center text-muted callout callout-info">
+          <strong>Questionnaire missing? Contribute!</strong> Refer to the{" "}
+          <a
+            href="https://github.com/THA-Embedded-Systems-Lab/HMI-Questionnaires/blob/main/README.md"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            contribution section
+          </a>{" "}
+          of the README on GitHub. .
+        </div>
       </div>
     </div>
   );
