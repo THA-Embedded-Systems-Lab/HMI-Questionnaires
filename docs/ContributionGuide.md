@@ -92,10 +92,20 @@ existing questionnaires as examples.
     items: null, // Number of items/questions
     languages: [""] // List of available languages in 2 character code, e.g., "en", "de"
   },
-  links: {
-    doi: "", // DOI link if available
-    website: "", // Official website link if available
-  },
+  links: { // Types can be "doi", "website", "git", "osf"
+    doi: [
+      {
+        title: "", // Title/description of the DOI link
+        url: "" // DOI URL
+      }
+    ], // Array of DOI links if available; can contain multiple entries
+    website: [
+      {
+        title: "", // Title/description of the website
+        url: "" // Website URL
+      }
+    ],
+   },
   domain: [], // Domains of application, e.g., automotive, aviation, general, etc.
   notes: [] // Any additional notes, e.g. average of multiple Cronbach's alpha values for a single scale across multiple groups
 }
