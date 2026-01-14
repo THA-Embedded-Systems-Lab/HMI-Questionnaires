@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Time } from "../types/Time";
 import { Questionnaire } from "../types/Questionnaire";
+import { getLanguageDisplayName } from "../utils/languageUtils";
 
 type Filters = {
   scales: string[];
@@ -64,6 +65,15 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
 
   const uniqueLanguages = Array.from(
     new Set(questionnaires.flatMap((q) => q.metadata.languages))
+  );
+
+  // Language filter state for combo box
+  const [languageInput, setLanguageInput] = useState("");
+  const [showLangDropdown, setShowLangDropdown] = useState(false);
+  const filteredLanguages = uniqueLanguages.filter((lang) =>
+    getLanguageDisplayName(lang)
+      .toLowerCase()
+      .includes(languageInput.toLowerCase())
   );
 
   return (
@@ -154,20 +164,82 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
 
         <div className="mb-3">
           <h3>Language</h3>
-          <select
-            id="language"
-            name="language"
-            className="form-select"
-            value={filters.language}
-            onChange={onFilterChange}
-          >
-            <option value="">All Languages</option>
-            {uniqueLanguages.map((language) => (
-              <option key={language} value={language}>
-                {language}
-              </option>
-            ))}
-          </select>
+          <div style={{ position: "relative" }}>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Type or select language"
+              value={
+                filters.language
+                  ? getLanguageDisplayName(filters.language)
+                  : languageInput || ""
+              }
+              onChange={(e) => {
+                if (filters.language) {
+                  // If a language is selected, clear it and start new input
+                  onFilterChange({
+                    target: { name: "language", value: "" },
+                  } as any);
+                  setLanguageInput(e.target.value);
+                } else {
+                  setLanguageInput(e.target.value);
+                }
+                setShowLangDropdown(true);
+              }}
+              onKeyDown={(e) => {
+                if (
+                  filters.language &&
+                  (e.key === "Backspace" || e.key === "Delete") &&
+                  (e.target as HTMLInputElement).selectionStart ===
+                    (e.target as HTMLInputElement).value.length
+                ) {
+                  // Clear selected language and allow typing
+                  onFilterChange({
+                    target: { name: "language", value: "" },
+                  } as any);
+                  setLanguageInput("");
+                  e.preventDefault();
+                }
+              }}
+              onFocus={() => setShowLangDropdown(true)}
+              onBlur={() => setTimeout(() => setShowLangDropdown(false), 150)}
+              autoComplete="off"
+            />
+            {showLangDropdown && (
+              <ul
+                className="list-group position-absolute w-100"
+                style={{ zIndex: 10, maxHeight: 200, overflowY: "auto" }}
+              >
+                <li
+                  className="list-group-item list-group-item-action"
+                  style={{ cursor: "pointer" }}
+                  onMouseDown={() => {
+                    setLanguageInput("");
+                    onFilterChange({
+                      target: { name: "language", value: "" },
+                    } as any);
+                  }}
+                >
+                  All Languages
+                </li>
+                {filteredLanguages.map((language) => (
+                  <li
+                    key={language}
+                    className="list-group-item list-group-item-action"
+                    style={{ cursor: "pointer" }}
+                    onMouseDown={() => {
+                      setLanguageInput("");
+                      onFilterChange({
+                        target: { name: "language", value: language },
+                      } as any);
+                    }}
+                  >
+                    {getLanguageDisplayName(language)}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
         </div>
 
         <div className="mb-3">
