@@ -97,7 +97,7 @@ const QuestionnairesPage: React.FC = () => {
       : true;
 
     const matchesLanguage = filters.language
-      ? q.data.some((dataEntry) => dataEntry.language === filters.language)
+      ? q.metadata.languages && q.metadata.languages.includes(filters.language)
       : true;
 
     return matchesSearch && matchesScales && matchesTime && matchesLanguage;
