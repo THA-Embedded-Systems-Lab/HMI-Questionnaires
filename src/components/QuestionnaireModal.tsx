@@ -40,7 +40,7 @@ const QuestionnaireModal: React.FC<QuestionnaireModalProps> = ({
     if (!dataEntry) return "N/A";
 
     const scale = dataEntry.scales.find((s) => s.name === scaleName);
-    return scale?.cronbachsAlpha?.toString() || "N/A";
+    return scale?.cronbachsAlpha?.toString() || "—";
   };
 
   // Reset selected language when questionnaire changes
