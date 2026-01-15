@@ -47,15 +47,19 @@ const questionnaires: Questionnaire[] = [
       {
         language: "EN",
         scales: [
-          { name: "Attractiveness" },
-          { name: "Perspicuity" },
-          { name: "Efficiency" },
-          { name: "Dependability" },
-          { name: "Stimulation" },
-          { name: "Novelty" },
+          { name: "Attractiveness", cronbachsAlpha: 0.86 },
+          { name: "Perspicuity", cronbachsAlpha: 0.71 },
+          { name: "Efficiency", cronbachsAlpha: 0.79 },
+          { name: "Dependability", cronbachsAlpha: 0.69 },
+          { name: "Stimulation", cronbachsAlpha: 0.88 },
+          { name: "Novelty", cronbachsAlpha: 0.84 },
           { name: "Hedonic" },
           { name: "Pragmatic" },
         ],
+        participantDetails: {
+          n: 21,
+          type: ["Online recruitment"],
+        },
       },
     ],
     metadata: {
@@ -118,6 +122,9 @@ const questionnaires: Questionnaire[] = [
         },
       ],
     },
+    notes: [
+      "The reported Cronbach's alpha values are from the original paper. The provided evaluation Excel sheet might report more up to date numbers.",
+    ],
   },
   {
     name: "User Experience Questionnaire - Short",
