@@ -9,7 +9,9 @@ If you find any inaccuracies or outdated information in the existing
 questionnaires, please follow these steps to submit your updates:
 
 1. Go to the [`src/questionnaires.ts`](./src/questionnaires.ts) file in the
-   repository.
+   repository. _If you already have a fork, because you contributed before,
+   check if your fork of the repository is up to date. There should be a button
+   to do so on your fork's GitHub page._
 2. Locate the questionnaire that needs updating.
 3. Click the Edit button (pencil icon) at the top right of the file view to
    create a fork of the repository in your GitHub account.
@@ -36,7 +38,9 @@ the details of the questionnaire.
 In order to add a new questionnaire, please follow these steps:
 
 1. Go to the [`src/questionnaires.ts`](./src/questionnaires.ts) file in the
-   repository.
+   repository. _If you already have a fork, because you contributed before,
+   check if your fork of the repository is up to date. There should be a button
+   to do so on your fork's GitHub page._
 2. Click the Edit button (pencil icon) at the top right of the file view to
    create a fork of the repository in your GitHub account.
 3. Add a new entry for the questionnaire following the existing structure and
