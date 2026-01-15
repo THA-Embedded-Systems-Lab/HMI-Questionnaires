@@ -11,16 +11,18 @@ questionnaires, please follow these steps to submit your updates:
 1. Go to the [`src/questionnaires.ts`](./src/questionnaires.ts) file in the
    repository.
 2. Locate the questionnaire that needs updating.
-3. Make the necessary changes to the questionnaire data. Ensure that you follow
+3. Click the Edit button (pencil icon) at the top right of the file view to
+   create a fork of the repository in your GitHub account.
+4. Make the necessary changes to the questionnaire data. Ensure that you follow
    the existing structure and format used in the file. In case the structure is
    missing some fields, please compare to the section below to identify missing
    fields for the complete structure.
-4. Once you have made the changes, commit them with a descriptive message
+5. Once you have made the changes, commit them with a descriptive message
    explaining the updates you made.
-5. Push your changes to your forked repository.
-6. Open a pull request to the main repository, providing a clear description of
+6. Push your changes to your forked repository.
+7. Open a pull request to the main repository, providing a clear description of
    the changes you have made.
-7. A reviewer will assess your pull request and may provide feedback or request
+8. A reviewer will assess your pull request and may provide feedback or request
    changes before merging it into the main repository.
 
 ## Adding New Questionnaires
@@ -35,20 +37,22 @@ In order to add a new questionnaire, please follow these steps:
 
 1. Go to the [`src/questionnaires.ts`](./src/questionnaires.ts) file in the
    repository.
-2. Add a new entry for the questionnaire following the existing structure and
+2. Click the Edit button (pencil icon) at the top right of the file view to
+   create a fork of the repository in your GitHub account.
+3. Add a new entry for the questionnaire following the existing structure and
    format used in the file. An example structure is provided below, for copy and
    pasting. Append this to the end of the
    ['questionnaires' array](./src/questionnaires.ts).
-3. Fill in all the relevant details for the new questionnaire, ensuring accuracy
+4. Fill in all the relevant details for the new questionnaire, ensuring accuracy
    and completeness. You may utilize LLMs to fill in the extracted details in
    the data structure, but please make sure to verify the information for
    correctness.
-4. Once you have added the new questionnaire, commit your changes with a
+5. Once you have added the new questionnaire, commit your changes with a
    descriptive message explaining the addition.
-5. Push your changes to your forked repository.
-6. Open a pull request to the main repository, providing a clear description of
+6. Push your changes to your forked repository.
+7. Open a pull request to the main repository, providing a clear description of
    the new questionnaire you have added.
-7. A reviewer will assess your pull request and may provide feedback or request
+8. A reviewer will assess your pull request and may provide feedback or request
    changes before merging it into the main repository.
 
 The following code block provides a skeleton to add to the
@@ -75,11 +79,13 @@ existing questionnaires as examples.
       scales: [
         {
           name:  "",  // Name of the scale/subscale
-          cronbachsAlpha: null // Cronbach's alpha value for the scale, leave null if not available
+          cronbachsAlpha: null, // Cronbach's alpha value for the scale, leave null if not available
+          omega: { value: 0.00, type: "" } // Omega reliability coefficient with type (e.g., "total", "hierarchical", "McDonald's", remove if not available
         },
         {
           name: "", // Name of the next scale; Copy this block for additional scales
-          cronbachsAlpha: null // ...
+          cronbachsAlpha: null, // ...
+          omega: { value: 0.00, type: "" } // Optional: omega reliability coefficient
         }
       ]
     }

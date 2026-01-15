@@ -32,4 +32,5 @@ export type data = {
 export type Scale = {
   name: string;
   cronbachsAlpha?: number;
+  omega?: { value: number; type: string };
 };
