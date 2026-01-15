@@ -365,10 +365,12 @@ const questionnaires: Questionnaire[] = [
       {
         language: "EN",
         scales: [
-          { name: "Effectiveness" },
-          { name: "Efficiency" },
-          { name: "Satisfaction" },
+          { name: "Usability", cronbachsAlpha: 0.94 },
         ],
+        participantDetails: {
+          n: 558,
+          type: ["Users of enterprise software at Intel", "US"],
+        },
       },
     ],
     metadata: {
