@@ -1,7 +1,7 @@
 {
   "name": "hmi_questionnaire",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.3.0",
   "homepage": "https://tha-embedded-systems-lab.github.io/HMI-Questionnaires/",
   "type": "module",
   "scripts": {
