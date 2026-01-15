@@ -9,7 +9,11 @@ const questionnaires: Questionnaire[] = [
     data: [
       {
         language: "EN",
-        scales: [{ name: "Usability" }],
+        scales: [{ name: "Usability", cronbachsAlpha: 0.911 }],
+        participantDetails: {
+          n: 2324,
+          type: ["unspecified"],
+        },
       },
     ],
     metadata: {
@@ -32,6 +36,9 @@ const questionnaires: Questionnaire[] = [
         },
       ],
     },
+    notes: [
+      'Cronbach\'s alpha is taken from a slightly adopted version based on the paper "An Empirical Evaluation of the System Usability Scale" since the original paper does not report it.',
+    ],
   },
   {
     name: "User Experience Questionnaire",
