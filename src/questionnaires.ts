@@ -259,11 +259,35 @@ const questionnaires: Questionnaire[] = [
       {
         language: "EN",
         scales: [
-          { name: "Comfort" },
-          { name: "Trust" },
-          { name: "Acceptance" },
+          { name: "Neg. Situation of Interaction" },
+          { name: "Neg. Social Influence" },
+          { name: "Neg. Emotions in Interaction" },
         ],
       },
+      {
+        language: "JP",
+        scales: [
+          {
+            name: "Neg. Situation of Interaction",
+            cronbachsAlpha: 0.75,
+          },
+          {
+            name: "Neg. Social Influence",
+            cronbachsAlpha: 0.782,
+          },
+          {
+            name: "Neg. Emotions in Interaction",
+            cronbachsAlpha: 0.648,
+          },
+        ],
+        participantDetails: {
+          n: 240,
+          type: ["Japan University Members"],
+        },
+      },
+    ],
+    notes: [
+      'The subscales names were abbreviated as follow: "Neg. att. t. situations of interaction with robots"  → Neg. Situation of Interaction; "Neg. att. t. the social influence of robots" → Neg. Social Influence; "Neg. att. t. emotions in interaction with robots" → Neg. Emotions in Interaction',
     ],
     metadata: {
       time: [Time.PostStudy],
@@ -286,9 +310,6 @@ const questionnaires: Questionnaire[] = [
         },
       ],
     },
-    notes: [
-      "The scales are usually negative for this questionnaire, but for filtering, we invert them for better visibility.",
-    ],
   },
   {
     name: "Attitudes toward Cooperative Industrial Robots Questionnaire",
