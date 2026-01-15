@@ -317,7 +317,7 @@ const questionnaires: Questionnaire[] = [
     data: [
       {
         language: "EN",
-        scales: [{ name: "Social" }, { name: "Task" }, { name: "Affect" }],
+        scales: [{ name: "Social", omega: {value: 0.84, type: "McDonald" }}, { name: "Task", omega: {value: 0.81, type: "McDonald" } }, { name: "Affect-Behavior", omega: {value: 0.83, type: "McDonald" } }],        
       },
     ],
     metadata: {
