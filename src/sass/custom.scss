@@ -1,16 +1,8 @@
-@import "bootstrap/scss/functions";
-
-$primary: rgb(255, 38, 92);
-$secondary: rgba(169, 166, 166, 0.656); // Example secondary color
-
-@import "bootstrap/scss/variables";
-
-$theme-colors: (
-  "primary": $primary,
-  "secondary": $secondary,
+// Import Bootstrap with custom variable overrides
+@use "bootstrap/scss/bootstrap" as * with (
+  $primary: rgb(255, 38, 92),
+  $secondary: rgba(169, 166, 166, 0.656)
 );
-
-@import "bootstrap";
 
 // Footer link styles - use Bootstrap's semantic color variables
 footer a {
