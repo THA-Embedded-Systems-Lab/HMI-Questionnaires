@@ -27,10 +27,9 @@ const Alternatives: React.FC = () => {
                     rel="noopener noreferrer"
                     className="text-decoration-none"
                   >
-                    German UPA
-                  </a>
-                  . This resource focuses specifically on German-language
-                  questionnaires and measurement instruments.
+                    German UPA.
+                  </a>{" "}
+                  It also offers a questionnaire matrix with filters.
                 </li>
                 <li className="mb-3">
                   <strong>
@@ -47,9 +46,7 @@ const Alternatives: React.FC = () => {
                   is a free resource that documents and provides tested German,
                   English, and multilingual measurement instruments (items,
                   scales, questionnaires, tests, indexes) used or usable in
-                  survey research in the social and behavioral sciences,
-                  according to established scientific quality standards. It
-                  serves as both an archive and a toolbox.{" "}
+                  survey research in the social and behavioral sciences.
                 </li>
                 <li className="mb-3">
                   <strong>
@@ -64,12 +61,8 @@ const Alternatives: React.FC = () => {
                   >
                     HFRS Questionnaires and Scales{" "}
                   </a>
-                  provides a collection of questionnaires and scales useful for
-                  researchers in human factors, with a focus on Traffic and
-                  Transport (including driving behavior questionnaires) and
-                  Human-Technology Interaction (including system acceptance and
-                  robot interaction scales). Each questionnaire includes
-                  downloadable materials and detailed properties information.
+                  provides a collection of questionnaires. Questionnaires
+                  includes downloadable materials and properties information.
                 </li>
               </ul>
             </div>
