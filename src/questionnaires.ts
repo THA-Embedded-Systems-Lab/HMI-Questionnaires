@@ -452,6 +452,9 @@ const questionnaires: Questionnaire[] = [
         },
       ],
     },
+    notes: [
+      'Cronbach\'s alpha is not reported in the original study.',
+    ],
   },
   {
     name: "NASA Task Load Index",
@@ -483,6 +486,9 @@ const questionnaires: Questionnaire[] = [
         },
       ],
     },
+     notes: [
+      'Cronbach\'s alpha is not reported in the original study.',
+    ],
   },
   {
     name: "AttrakDiff: Ein Fragebogen zur Messung wahrgenommener hedonischer und pragmatischer Qualität",
@@ -490,7 +496,13 @@ const questionnaires: Questionnaire[] = [
     data: [
       {
         language: "DE",
-        scales: [{ name: "Hedonic" }, { name: "Pragmatic" }],
+        scales: [{ name: "hedonische Qualität-Simulation", 
+                  cronbachsAlpha: 0.83, }, 
+                 { name: "hedonische Qualität-Identität", 
+                  cronbachsAlpha: 0.78, },
+                 { name: "pragmatische Qualität",
+                  cronbachsAlpha: 0.84,}, 
+                ],
       },
     ],
     metadata: {
@@ -508,6 +520,9 @@ const questionnaires: Questionnaire[] = [
         },
       ],
     },
+    notes: [
+      "For each scale, Cronbach's alpha is computed from the average post-study test scores across all groups to facilitate simplified reporting.",
+    ],
   },
   {
     name: "Psychological assessment of AI-based decision support systems",
