@@ -14,13 +14,13 @@ In case you **contributed before**, please **make sure your fork of the
 repository is up to date** before starting to work on new changes. The following
 images show where to find your fork and how to update it.
 
-![Navigate to your fork](./images/navigate-to-fork.png)
-![Update fork button](./images/update-fork.png)
+![Navigate to your fork](./Images/navigate-to-fork.png)
+![Update fork button](./Images/update-fork.png)
 
 1. Go to the [`src/questionnaires.ts`](../src/questionnaires.ts) file in the
    repository.
 2. Click the Edit button (pencil icon) at the top right of the file view.
-   ![Edit button location](./images/01-edit-file.png)
+   ![Edit button location](./Images/01-edit-file.png)
 
 3. Locate the questionnaire that needs updating or where you want to add a new
    questionnaire.
@@ -37,18 +37,18 @@ images show where to find your fork and how to update it.
 4. Once you have made the changes, commit them with a descriptive message
    explaining the updates you made.
 
-   ![Commit changes location](./images/02-commit-changes.png)
-   ![Open pull request location](./images/03-commit-message-and-fork.png)
+   ![Commit changes location](./Images/02-commit-changes.png)
+   ![Open pull request location](./Images/03-commit-message-and-fork.png)
 
 5. Open a pull request to the main repository, providing a clear description of
    the changes you have made.
 
-   ![Pull request review location](./images/04-open-pull-request.png)
+   ![Pull request review location](./Images/04-open-pull-request.png)
 
 6. A reviewer will assess your pull request and may provide feedback or request
    changes before merging it into the main repository.
 
-   ![Pull request review location](./images/05-pull-request-opened.png)
+   ![Pull request review location](./Images/05-pull-request-opened.png)
 
 7. Wait for a maintainer to review and merge your pull request. Be available for
    questions from the maintainers if they need any clarifications regarding your
