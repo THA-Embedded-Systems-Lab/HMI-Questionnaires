@@ -124,6 +124,7 @@ const questionnaires: Questionnaire[] = [
     },
     notes: [
       "The reported Cronbach's alpha values are from the original paper. The provided evaluation Excel sheet might report more up to date numbers.",
+      "Updated note for a Tutorial",
     ],
   },
   {
