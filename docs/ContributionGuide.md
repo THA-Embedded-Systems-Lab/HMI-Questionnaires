@@ -1,66 +1,62 @@
 # Contribution Guide
 
-We separate the guide in two use cases: (i) updating existing questionnaire data
-and (ii) adding new questionnaires.
-
-## Updating Questionnaire Data
-
-If you find any inaccuracies or outdated information in the existing
-questionnaires, please follow these steps to submit your updates:
-
-1. Go to the [`src/questionnaires.ts`](../src/questionnaires.ts) file in the
-   repository. _If you already have a fork, because you contributed before,
-   check if your fork of the repository is up to date. There should be a button
-   to do so on your fork's GitHub page._
-   - [ ] HOW TO FIND YOUR OWN FORK AND UPDATE IT?
-2. Locate the questionnaire that needs updating.
-3. Click the Edit button (pencil icon) at the top right of the file view to
-   create a fork of the repository in your GitHub account.
-4. Make the necessary changes to the questionnaire data. Ensure that you follow
-   the existing structure and format used in the file. In case the structure is
-   missing some fields, please compare to the section below to identify missing
-   fields for the complete structure.
-5. Once you have made the changes, commit them with a descriptive message
-   explaining the updates you made.
-6. Push your changes to your forked repository.
-7. Open a pull request to the main repository, providing a clear description of
-   the changes you have made.
-8. A reviewer will assess your pull request and may provide feedback or request
-   changes before merging it into the main repository.
-
-## Adding New Questionnaires
-
 If you are missing a questionnaire in the collection, please check the
 [issues](https://github.com/THA-Embedded-Systems-Lab/HMI-Questionnaires/issues)
 in case someone already requested it or if there is an ongoing discussion about
 it. If not, feel free to open a new issue or directly submit a pull request with
-the details of the questionnaire.
+the details of the questionnaire. For PRs please follow the instructions below.
 
-In order to add a new questionnaire, please follow these steps:
+We separate the guide in two use cases: (i) updating existing questionnaire data
+and (ii) adding new questionnaires. For both contribution types, you will need
+to follow the next steps, before the specific instructions for each use case.
+
+In case you **contributed before**, please **make sure your fork of the
+repository is up to date** before starting to work on new changes. The following
+images show where to find your fork and how to update it.
+
+![Navigate to your fork](./images/navigate-to-fork.png)
+![Update fork button](./images/update-fork.png)
 
 1. Go to the [`src/questionnaires.ts`](../src/questionnaires.ts) file in the
-   repository. _If you already have a fork, because you contributed before,
-   check if your fork of the repository is up to date. There should be a button
-   to do so on your fork's GitHub page._
-2. Click the Edit button (pencil icon) at the top right of the file view to
-   create a fork of the repository in your GitHub account.
-3. Add a new entry for the questionnaire following the existing structure and
-   format used in the file. An example structure is provided below, for copy and
-   pasting. Append this to the end of the
-   ['questionnaires' array](./src/questionnaires.ts).
-4. Fill in all the relevant details for the new questionnaire, ensuring accuracy
-   and completeness. You may utilize LLMs to fill in the extracted details in
-   the data structure, but please make sure to verify the information for
-   correctness.
-5. Once you have added the new questionnaire, commit your changes with a
-   descriptive message explaining the addition.
-6. Push your changes to your forked repository.
-7. Open a pull request to the main repository, providing a clear description of
-   the new questionnaire you have added.
-8. A reviewer will assess your pull request and may provide feedback or request
+   repository.
+2. Click the Edit button (pencil icon) at the top right of the file view.
+   ![Edit button location](./images/01-edit-file.png)
+
+3. Locate the questionnaire that needs updating or where you want to add a new
+   questionnaire.
+   1. **Updating Questionnaire Data**: Make the necessary changes to the
+      questionnaire data. Ensure that you follow the existing structure and
+      format used in the file. In case the structure is missing some fields,
+      please compare to the section below to identify missing fields for the
+      complete structure.
+   2. **Adding New Questionnaires**: Scroll to the end of the file to add a new
+      entry for the questionnaire. Follow the existing structure and format used
+      in the file. An example structure/ template is provided below, for copy
+      and pasting.
+
+4. Once you have made the changes, commit them with a descriptive message
+   explaining the updates you made.
+
+   ![Commit changes location](./images/02-commit-changes.png)
+   ![Open pull request location](./images/03-commit-message-and-fork.png)
+
+5. Open a pull request to the main repository, providing a clear description of
+   the changes you have made.
+
+   ![Pull request review location](./images/04-open-pull-request.png)
+
+6. A reviewer will assess your pull request and may provide feedback or request
    changes before merging it into the main repository.
 
-The following code block provides a skeleton to add to the
+   ![Pull request review location](./images/05-pull-request-opened.png)
+
+7. Wait for a maintainer to review and merge your pull request. Be available for
+   questions from the maintainers if they need any clarifications regarding your
+   contribution.
+
+## Empty Questionnaires Template
+
+The following code block provides a template to add to the
 [`src/questionnaires.ts`](./src/questionnaires.ts) file. For possible values for
 the individual fields, please refer to the existing entries in the file, or
 check the definitions in [types](./src/types/). You can also refer to the
