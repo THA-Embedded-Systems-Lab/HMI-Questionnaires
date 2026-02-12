@@ -317,6 +317,10 @@ const questionnaires: Questionnaire[] = [
     data: [
       {
         language: "EN",
+        participantDetails: {
+          n: 556,
+          type: ["Manufactoring workers", "Germany"],
+        },
         scales: [{ name: "Social", omega: {value: 0.84, type: "McDonald" }}, { name: "Task", omega: {value: 0.81, type: "McDonald" } }, { name: "Affect-Behavior", omega: {value: 0.83, type: "McDonald" } }],        
       },
     ],
@@ -353,7 +357,7 @@ const questionnaires: Questionnaire[] = [
         scales: [
           { name: "Intent of Developers" },
           { name: "Reliability" },
-          { name: "Predictability" },
+          { name: "Understanding/Predictability" },
           { name: "Familiarity" },
           { name: "Propensity to Trust" },
           { name: "Trust in Automation" },
@@ -361,12 +365,16 @@ const questionnaires: Questionnaire[] = [
       },
       {
         language: "DE",
+         participantDetails: {
+          n: 58,
+          type: ["Online"],
+        },
         scales: [
           { name: "Intent of Developers" },
-          { name: "Reliability" },
-          { name: "Predictability" },
+          { name: "Reliability", omega: {value: 0.92, type: "Total" }},
+          { name: "Understanding/Predictability", omega: {value: 0.81, type: "Total" }},
           { name: "Familiarity" },
-          { name: "Propensity to Trust" },
+          { name: "Propensity to Trust", omega: {value: 0.78, type: "Total" }},
           { name: "Trust in Automation" },
         ],
       },
