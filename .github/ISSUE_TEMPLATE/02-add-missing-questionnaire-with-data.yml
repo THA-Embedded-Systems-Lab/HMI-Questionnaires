@@ -1,0 +1,144 @@
+name: Add missing questionnaire (with data)
+description: Request adding a questionnaire with full data in plain text form
+
+title: "[New Questionnaire + Data] "
+labels:
+  - questionnaire
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template to propose a **new questionnaire with full metadata and reliability information**.
+
+        Please provide data in plain text (not TypeScript). The maintainers will convert it into the project format.
+
+  - type: input
+    id: questionnaire_name
+    attributes:
+      label: Questionnaire name
+      description: Full name of the questionnaire
+      placeholder: e.g., User Experience Questionnaire
+    validations:
+      required: true
+
+  - type: input
+    id: short_name
+    attributes:
+      label: Short name / acronym
+      placeholder: e.g., UEQ
+    validations:
+      required: true
+
+  - type: textarea
+    id: validation_data
+    attributes:
+      label: Validation data (plain text)
+      description: |
+        For each language, provide participant details and scales.
+        Suggested text format:
+        - Language: en
+          - Participants: n=120; type=students, employees
+          - Scale: Pragmatic Quality; Cronbach's alpha=0.87; Omega=0.89 (total)
+          - Scale: Hedonic Quality; Cronbach's alpha=0.90; Omega=not available
+      placeholder: |
+        Language: ...
+        Participants: n=...; type=...
+        Scale: ...; Cronbach's alpha=...; Omega=... (...)
+    validations:
+      required: true
+
+  - type: input
+    id: license
+    attributes:
+      label: License
+      description: License under which the questionnaire is published
+      placeholder: e.g., CC BY 4.0 / Proprietary / Unknown
+    validations:
+      required: false
+
+  - type: input
+    id: response_format
+    attributes:
+      label: Response format
+      description: e.g., Likert scale, yes/no, semantic differential
+      placeholder: Likert (1-5)
+    validations:
+      required: false
+
+  - type: textarea
+    id: administration_time
+    attributes:
+      label: Administration time context
+      description: One or more (e.g., pre-study, post-study, standalone)
+      placeholder: e.g., Post-study, Standalone
+    validations:
+      required: false
+
+  - type: input
+    id: publication_year
+    attributes:
+      label: Publication year
+      placeholder: e.g., 2018
+    validations:
+      required: false
+
+  - type: input
+    id: number_of_items
+    attributes:
+      label: Number of items/questions
+      placeholder: e.g., 26
+    validations:
+      required: false
+
+  - type: textarea
+    id: languages
+    attributes:
+      label: Available languages
+      description: 2-character language codes
+      placeholder: e.g., en, de, fr
+    validations:
+      required: false
+
+  - type: textarea
+    id: links
+    attributes:
+      label: Links (DOI, website, git, osf)
+      description: Provide one or more links with a short title/description
+      placeholder: |
+        DOI: title - https://doi.org/...
+        Website: title - https://...
+        Git: title - https://github.com/...
+        OSF: title - https://osf.io/...
+    validations:
+      required: true
+
+  - type: textarea
+    id: domain
+    attributes:
+      label: Domain(s) of application
+      description: e.g., automotive, aviation, healthcare, general
+      placeholder: automotive, general
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional notes
+      description: Any extra context (e.g., averaging reliability across groups)
+      placeholder: Optional
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I checked existing issues to avoid duplicates.
+          required: true
+        - label: I provided all available information in plain text (not TypeScript).
+          required: true
+        - label: I included at least one source link (DOI and/or website).
+          required: true

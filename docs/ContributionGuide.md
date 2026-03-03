@@ -6,6 +6,20 @@ in case someone already requested it or if there is an ongoing discussion about
 it. If not, feel free to open a new issue or directly submit a pull request with
 the details of the questionnaire. For PRs please follow the instructions below.
 
+## Alternative: Submit via Issue Templates
+
+If you prefer not to open a pull request directly, you can use one of the issue
+templates:
+
+- **Add missing questionnaire (links only)**:
+  [`.github/ISSUE_TEMPLATE/01-add-missing-questionnaire.yml`](../.github/ISSUE_TEMPLATE/01-add-missing-questionnaire.yml)
+  (for questionnaire name + source links such as DOI/website, without detailed
+  validation data)
+- **Add missing questionnaire (with data)**:
+  [`.github/ISSUE_TEMPLATE/02-add-missing-questionnaire-with-data.yml`](../.github/ISSUE_TEMPLATE/02-add-missing-questionnaire-with-data.yml)
+  (for full questionnaire details in plain text, which maintainers will convert
+  to the TypeScript format)
+
 We separate the guide in two use cases: (i) updating existing questionnaire data
 and (ii) adding new questionnaires. For both contribution types, you will need
 to follow the next steps, before the specific instructions for each use case.

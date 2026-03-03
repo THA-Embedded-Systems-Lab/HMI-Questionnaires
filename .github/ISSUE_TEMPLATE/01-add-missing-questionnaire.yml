@@ -1,0 +1,70 @@
+name: Add missing questionnaire (links only)
+description: Request adding a questionnaire entry with source links only (no reliability/data details yet)
+title: "[New Questionnaire] "
+labels:
+  - questionnaire
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template when a questionnaire is missing in the collection, but you only want to provide discovery links (e.g., website/DOI) for now.
+
+  - type: input
+    id: questionnaire_name
+    attributes:
+      label: Questionnaire name
+      description: Full name of the questionnaire
+      placeholder: e.g., System Usability Scale
+    validations:
+      required: true
+
+  - type: input
+    id: short_name
+    attributes:
+      label: Short name / acronym
+      description: Optional abbreviation
+      placeholder: e.g., SUS
+    validations:
+      required: false
+
+  - type: textarea
+    id: questionnaire_links
+    attributes:
+      label: Questionnaire links (website and/or DOI)
+      description: Provide one or more links. Include a short title for each link.
+      placeholder: |
+        - DOI: https://doi.org/...
+        - Website: https://...
+    validations:
+      required: true
+
+  - type: textarea
+    id: why_relevant
+    attributes:
+      label: Why this questionnaire should be added
+      description: Briefly explain relevance to HMI/usability/UX research
+      placeholder: Short rationale...
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional notes
+      description: Any extra context for maintainers
+      placeholder: Optional
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I checked existing issues to avoid duplicates.
+          required: true
+        - label: I provided at least one source link (website and/or DOI).
+          required: true
+        - label: I understand this template is for links only and not full questionnaire data.
+          required: true
