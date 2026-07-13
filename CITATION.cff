@@ -1,0 +1,90 @@
+cff-version: 1.2.0
+title: "HMI-Questionnaires"
+type: software
+repository-code: "https://github.com/tha-embedded-systems-lab/HMI-Questionnaires"
+authors:
+  - family-names: Schmidt
+    given-names: Moritz
+    orcid: "https://orcid.org/0009-0008-5666-9666"
+  - family-names: Schaffernak
+    given-names: Insa
+    orcid: "https://orcid.org/0009-0004-2024-099X"
+  - family-names: Watermann
+    given-names: Lara
+    orcid: "https://orcid.org/0009-0009-7055-6366"
+  - family-names: Kubowitsch
+    given-names: Simone
+    orcid: "https://orcid.org/0009-0003-5575-9786"
+  - family-names: Hatfield
+    given-names: Sarah
+    orcid: "https://orcid.org/0000-0002-8673-8035"
+  - family-names: Lermer
+    given-names: Eva
+    orcid: "https://orcid.org/0000-0002-6600-9580"
+  - family-names: Teynor
+    given-names: Alexandra
+    orcid: "https://orcid.org/0000-0002-8141-0428"
+  - family-names: Meitinger
+    given-names: Claudia
+    orcid: "https://orcid.org/0009-0000-7800-7948"
+preferred-citation:
+  type: conference-paper
+  title:
+    "HMI-Questionnaires: A Community-Driven, Open-Access Project for
+    Human-Machine Interaction Scales"
+  authors:
+    - family-names: Schmidt
+      given-names: Moritz
+      orcid: "https://orcid.org/0009-0008-5666-9666"
+    - family-names: Schaffernak
+      given-names: Insa
+      orcid: "https://orcid.org/0009-0004-2024-099X"
+    - family-names: Watermann
+      given-names: Lara
+      orcid: "https://orcid.org/0009-0009-7055-6366"
+    - family-names: Kubowitsch
+      given-names: Simone
+      orcid: "https://orcid.org/0009-0003-5575-9786"
+    - family-names: Hatfield
+      given-names: Sarah
+      orcid: "https://orcid.org/0000-0002-8673-8035"
+    - family-names: Lermer
+      given-names: Eva
+      orcid: "https://orcid.org/0000-0002-6600-9580"
+    - family-names: Teynor
+      given-names: Alexandra
+      orcid: "https://orcid.org/0000-0002-8141-0428"
+    - family-names: Meitinger
+      given-names: Claudia
+      orcid: "https://orcid.org/0009-0000-7800-7948"
+  editors:
+    - family-names: Stephanidis
+      given-names: Constantine
+    - family-names: Margetis
+      given-names: George
+    - family-names: Ntoa
+      given-names: Stavroula
+    - family-names: Antona
+      given-names: Margherita
+    - family-names: Salvendy
+      given-names: Gavriel
+  collection-title: "HCI International 2026 Posters"
+  year: 2026
+  publisher:
+    name: "Springer Nature Switzerland"
+  city: "Cham"
+  start: 461
+  end: 470
+  isbn: "978-3-032-30552-7"
+  doi: "10.1007/978-3-032-30552-7_44"
+  abstract:
+    "Questionnaires are essential tools in Human-Machine Interaction (HMI)
+    research for evaluating human factors. However, two major challenges persist
+    in this interdisciplinary field: first, the use of self-constructed and
+    non-validated scales, which exacerbates the replication crisis; and second,
+    the increasing development of new questionnaires, which makes it difficult
+    for researchers to maintain an overview and choose appropriate
+    questionnaires. Additionally, existing resources that aim to provide an
+    overview of published questionnaires often fall short due to limited
+    functionalities, e.g., lacking filtering options, being language-specific,
+    missing questionnaires, or no contribution possibilities."

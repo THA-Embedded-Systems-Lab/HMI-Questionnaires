@@ -127,3 +127,33 @@ necessary updates.
 
 In case a questionnaire is missing, feel free to open a pull request with the
 details.
+
+## Citation
+
+This project is also published as an open access paper:
+[10.1007/978-3-032-30552-7_44](https://doi.org/10.1007/978-3-032-30552-7_44)
+
+```bibtex
+@inproceedings{10.1007/978-3-032-30552-7_44,
+  author    = {Schmidt, Moritz
+               and Schaffernak, Insa
+               and Watermann, Lara
+               and Kubowitsch, Simone
+               and Hatfield, Sarah
+               and Lermer, Eva
+               and Teynor, Alexandra
+               and Meitinger, Claudia},
+  editor    = {Stephanidis, Constantine
+               and Margetis, George
+               and Ntoa, Stavroula
+               and Antona, Margherita
+               and Salvendy, Gavriel},
+  title     = {HMI-Questionnaires: A Community-Driven, Open-Access Project for Human-Machine Interaction Scales},
+  booktitle = {HCI International 2026 Posters},
+  year      = {2026},
+  publisher = {Springer Nature Switzerland},
+  address   = {Cham},
+  pages     = {461--470},
+  isbn      = {978-3-032-30552-7}
+}
+```
