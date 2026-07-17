@@ -1,5 +1,7 @@
 # Human Machine Interaction Questionnaire Application
 
+[![Check Links](https://github.com/THA-Embedded-Systems-Lab/HMI-Questionnaires/actions/workflows/check-links.yml/badge.svg)](https://github.com/THA-Embedded-Systems-Lab/HMI-Questionnaires/actions/workflows/check-links.yml)
+
 A website listing most common human machine interaction questionnaires for
 filtering, sorting and assessing questionnaires for your needs.
 

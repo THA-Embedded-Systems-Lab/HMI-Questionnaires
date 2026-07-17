@@ -39,6 +39,18 @@ const Footer: React.FC = () => {
           v{import.meta.env.VITE_APP_VERSION} ({import.meta.env.VITE_APP_DATE})
         </a>
       </div>
+      <div className="d-flex justify-content-center mt-2">
+        <a
+          href="https://github.com/THA-Embedded-Systems-Lab/HMI-Questionnaires/actions/workflows/check-links.yml"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src="https://github.com/THA-Embedded-Systems-Lab/HMI-Questionnaires/actions/workflows/check-links.yml/badge.svg"
+            alt="Check Links"
+          />
+        </a>
+      </div>
     </footer>
   );
 };
