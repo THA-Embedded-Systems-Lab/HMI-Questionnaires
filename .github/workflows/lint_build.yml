@@ -25,6 +25,4 @@ jobs:
         run: bun lint
 
       - name: Lint Markdown files
-        run:
-          bunx markdownlint-cli "**/*.md" --ignore "node_modules" --ignore
-          "dist"
+        run: bunx markdownlint-cli "**/*.md"
