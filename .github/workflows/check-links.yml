@@ -14,10 +14,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
-      - name: Install lychee
-        run: cargo install lychee
-
-      - name: Run lychee link check
-        run: lychee --accept 200,403 ./src/** README.md -v
+      - name: Link Checker
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: "--accept 200,403 --verbose ./src/** README.md"
+          fail: true
