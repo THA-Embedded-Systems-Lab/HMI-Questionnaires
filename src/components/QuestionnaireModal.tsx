@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useCallback } from "react";
 import { Questionnaire } from "../types/Questionnaire";
 import { useTheme } from "../hooks/useTheme";
 
@@ -71,17 +71,17 @@ const QuestionnaireModal: React.FC<QuestionnaireModalProps> = ({
     return scale?.omega?.type || null;
   };
 
-  // Reset selected language when questionnaire changes
-  useEffect(() => {
-    if (questionnaire) {
-      const availableLanguages = getAvailableLanguages();
-      setSelectedLanguage(
-        availableLanguages.length > 0 ? availableLanguages[0] : ""
-      );
-    }
-  }, [questionnaire, getAvailableLanguages]);
-
   const availableLanguages = getAvailableLanguages();
+
+  // Reset selected language when the questionnaire changes. Derived from the
+  // prop during render instead of in an effect to avoid a cascading re-render.
+  const [prevQuestionnaire, setPrevQuestionnaire] = useState(questionnaire);
+  if (questionnaire !== prevQuestionnaire) {
+    setPrevQuestionnaire(questionnaire);
+    setSelectedLanguage(
+      availableLanguages.length > 0 ? availableLanguages[0] : ""
+    );
+  }
 
   if (!isOpen || !questionnaire) {
     return null;

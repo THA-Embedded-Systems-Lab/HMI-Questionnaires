@@ -179,7 +179,7 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
                   // If a language is selected, clear it and start new input
                   onFilterChange({
                     target: { name: "language", value: "" },
-                  } as any);
+                  } as unknown as React.ChangeEvent<HTMLSelectElement>);
                   setLanguageInput(e.target.value);
                 } else {
                   setLanguageInput(e.target.value);
@@ -196,7 +196,7 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
                   // Clear selected language and allow typing
                   onFilterChange({
                     target: { name: "language", value: "" },
-                  } as any);
+                  } as unknown as React.ChangeEvent<HTMLSelectElement>);
                   setLanguageInput("");
                   e.preventDefault();
                 }
@@ -217,7 +217,7 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
                     setLanguageInput("");
                     onFilterChange({
                       target: { name: "language", value: "" },
-                    } as any);
+                    } as unknown as React.ChangeEvent<HTMLSelectElement>);
                   }}
                 >
                   All Languages
@@ -231,7 +231,7 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
                       setLanguageInput("");
                       onFilterChange({
                         target: { name: "language", value: language },
-                      } as any);
+                      } as unknown as React.ChangeEvent<HTMLSelectElement>);
                     }}
                   >
                     {getLanguageDisplayName(language)}

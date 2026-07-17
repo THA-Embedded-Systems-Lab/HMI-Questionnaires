@@ -45,8 +45,10 @@ export default [
         sourceType: 'module',
       },
     },
-    settings: { 
-      react: { version: 'detect' } 
+    settings: {
+      // Pinned instead of 'detect': eslint-plugin-react 7.37's version
+      // auto-detection calls context.getFilename(), removed in ESLint 10.
+      react: { version: '19.2' },
     },
     plugins: {
       '@typescript-eslint': tseslint,

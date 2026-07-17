@@ -7,8 +7,7 @@ filtering, sorting and assessing questionnaires for your needs.
 
 ### Requirements
 
-- Node.js (v18 or higher recommended)
-- npm (comes with Node.js)
+- [Bun](https://bun.sh/) (v1.2 or higher)
 - Git
 
 ### How to Develop Locally
@@ -23,13 +22,13 @@ filtering, sorting and assessing questionnaires for your needs.
 2. Install dependencies:
 
    ```bash
-   npm install
+   bun install
    ```
 
 3. Start the development server:
 
    ```bash
-   npm run dev
+   bun run dev
    ```
 
 4. Open your browser and navigate to the URL shown in the terminal (typically
@@ -42,20 +41,20 @@ filtering, sorting and assessing questionnaires for your needs.
 6. Run linting to check your code:
 
    ```bash
-   npm run lint
+   bun run lint
    ```
 
 ### Pre-commit Hooks
 
 This project uses Husky to enforce code quality standards before commits.
 
-Husky is automatically activated when you run `npm install`. This executes the
+Husky is automatically activated when you run `bun install`. This executes the
 `prepare` script which initializes Husky hooks.
 
 If hooks are not working, you can manually activate Husky:
 
 ```bash
-npm run prepare
+bun run prepare
 ```
 
 This will set up the Git hooks in your local repository.
@@ -86,19 +85,18 @@ Common types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`
 
 1. Ensure all changes are committed and pushed to the main branch
 
-2. Create and push a new git tag with the version number:
+2. Bump the version. `bun pm version` updates the `package.json` version field
+   and creates a matching git commit and tag in one step:
 
    ```bash
-   git tag <major>.<minor>.<patch>
-   git push --tags
+   bun pm version patch   # or: minor | major | <major>.<minor>.<patch>
+   git push --follow-tags
    ```
-
-   Update the `package.json` version field.
 
 3. Deploy to GitHub Pages:
 
    ```bash
-   npm run deploy
+   bun run deploy
    ```
 
    This will automatically build the project and publish it to the `gh-pages`

@@ -6,9 +6,6 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  const [theme, setThemeState] = useState<Theme>("auto");
-  const [actualTheme, setActualTheme] = useState<"light" | "dark">("light");
-
   // Get the actual theme based on preference
   const getActualTheme = (themePreference: Theme): "light" | "dark" => {
     if (themePreference === "auto") {
@@ -19,22 +16,30 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     return themePreference;
   };
 
-  // Initialize theme
-  useEffect(() => {
-    const getPreferredTheme = () => {
-      const storedTheme = localStorage.getItem("theme") as Theme;
-      if (storedTheme && ["light", "dark", "auto"].includes(storedTheme)) {
-        return storedTheme;
-      }
-      return "auto" as Theme;
-    };
+  const applyTheme = (resolvedTheme: "light" | "dark") => {
+    // Using only data-bs-theme as per Bootstrap 5.3 recommendations
+    document.documentElement.setAttribute("data-bs-theme", resolvedTheme);
+  };
 
-    const initialTheme = getPreferredTheme();
-    setThemeState(initialTheme);
-    const resolvedTheme = getActualTheme(initialTheme);
-    setActualTheme(resolvedTheme);
-    applyTheme(resolvedTheme);
-  }, []);
+  const getPreferredTheme = (): Theme => {
+    const storedTheme = localStorage.getItem("theme") as Theme;
+    if (storedTheme && ["light", "dark", "auto"].includes(storedTheme)) {
+      return storedTheme;
+    }
+    return "auto";
+  };
+
+  // Initialize from stored preference on first render (no flash, no
+  // setState-in-effect).
+  const [theme, setThemeState] = useState<Theme>(getPreferredTheme);
+  const [actualTheme, setActualTheme] = useState<"light" | "dark">(() =>
+    getActualTheme(getPreferredTheme())
+  );
+
+  // Apply the resolved theme to the DOM whenever it changes (incl. mount)
+  useEffect(() => {
+    applyTheme(actualTheme);
+  }, [actualTheme]);
 
   // Listen for system theme changes
   useEffect(() => {
@@ -50,11 +55,6 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     mediaQuery.addEventListener("change", handleChange);
     return () => mediaQuery.removeEventListener("change", handleChange);
   }, [theme]);
-
-  const applyTheme = (resolvedTheme: "light" | "dark") => {
-    // Using only data-bs-theme as per Bootstrap 5.3 recommendations
-    document.documentElement.setAttribute("data-bs-theme", resolvedTheme);
-  };
 
   const setTheme = (newTheme: Theme) => {
     setThemeState(newTheme);
