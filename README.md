@@ -46,6 +46,26 @@ filtering, sorting and assessing questionnaires for your needs.
    bun run lint
    ```
 
+7. Run the tests:
+
+   ```bash
+   bun run test
+   ```
+
+### Testing
+
+Tests are written with [Vitest](https://vitest.dev/) and
+[Testing Library](https://testing-library.com/). They cover the questionnaire
+dataset (integrity checks such as unique abbreviations, valid ISO-639-1 language
+codes and reliability coefficients), utility functions, and the main React
+components.
+
+| Command                 | Description                                  |
+| ----------------------- | -------------------------------------------- |
+| `bun run test`          | Run the full test suite once                 |
+| `bun run test:watch`    | Re-run tests on file changes                 |
+| `bun run test:coverage` | Run the suite and report V8 coverage         |
+
 ### Pre-commit Hooks
 
 This project uses Husky to enforce code quality standards before commits.

@@ -265,7 +265,7 @@ const questionnaires: Questionnaire[] = [
         ],
       },
       {
-        language: "JP",
+        language: "JA",
         scales: [
           {
             name: "Neg. Situation of Interaction",
@@ -292,7 +292,7 @@ const questionnaires: Questionnaire[] = [
     metadata: {
       time: [Time.PostStudy],
       items: 14,
-      languages: ["EN", "ES", "DE", "FR", "JA", "CN"],
+      languages: ["EN", "ES", "DE", "FR", "JA", "ZH"],
       year: 2006,
       responseFormat: ResponseFormat.Likert5,
     },
